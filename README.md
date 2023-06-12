@@ -50,7 +50,7 @@ $config = [
     'style' => 'lowerCase'
 ];
 
-// Génération de 30 pseudonymes uniques
+// Generate 30 unique pseudonyms
 for ($a = 0; $a < 30; $a++) {
     $username = epicUsernameGenerator($config);
     echo $username . "<br>";
