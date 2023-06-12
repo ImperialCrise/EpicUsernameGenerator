@@ -3,10 +3,22 @@
 include 'nouns.php';
 include 'adjectives.php';
 
-function epicUsernameGenerator($config)
+function randomNumber($maxNumber)
+{
+    if ($maxNumber < 1 || $maxNumber > 6) {
+        return '';
+    }
+
+    $min = pow(10, $maxNumber - 1);
+    $max = pow(10, $maxNumber) - 1;
+
+    return rand($min, $max);
+}
+
+function uniqueUsernameGenerator($config)
 {
     if (!isset($config['dictionaries'])) {
-        throw new Exception("Cannot find any dictionary. Please provide at least one language dictionary");
+        throw new Exception("Cannot find any dictionary. Please provide at least one, or leave the 'dictionary' field empty in the config object");
     } else {
         $dictionariesLength = count($config['dictionaries']);
         $name = '';
@@ -17,7 +29,7 @@ function epicUsernameGenerator($config)
             } else {
                 $randomIndex = rand(0, (count($config['dictionaries'][$i])-1));
                 $randomName = $config['dictionaries'][$i][$randomIndex];
-                $nameLength = rand(4-$i, strlen($randomName)/2);
+                $nameLength = rand(4, strlen($randomName)/2);
                 $name .= substr($randomName, 0, $nameLength);
             }
         }
@@ -48,19 +60,20 @@ function epicUsernameGenerator($config)
 }
 
 // Example
-$englishConfig = [
+$config = [
     'dictionaries' => [
         $nouns,
         $adjectives
     ],
     'randomDigits' => 6,
     'length' => 8,
-    'style' => 'lowerCase'
+    'style' => 'capital'
 ];
 
 for ($a=0; $a < 30; $a++) { 
-    $username = epicUsernameGenerator($config);
-    echo $username . "<br>";
+$username = uniqueUsernameGenerator($config);
+echo $username . "<br>";
 }
+
 
 ?>
