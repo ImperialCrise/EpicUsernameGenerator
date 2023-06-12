@@ -58,6 +58,43 @@ for ($a = 0; $a < 30; $a++) {
 ?>
 ```
 
+## Example
+
+Here are some examples of the pseudonyms generated:
+
+```
+Rderi509
+Psycmagi
+Powreti1
+Lobshard
+Polbux78
+Matcumu1
+Clowdang
+Blaattri
+Canaccu5
+Appocomi
+Kerdese7
+Cololoc2
+Excafurr
+Specifap
+Matfurn4
+Judgthou
+Characto
+Defodesc
+Subplong
+Brothor7
+Blacesta
+Rifstea8
+Stform25
+Thorillu
+Statprin
+Determde
+Stepfol8
+Spocom27
+Receboi4
+Flapimag
+```
+
 ## Configuration
 
 Pseudonym generator configuration is defined in the `$config` associative array. Here is a description of the available parameters:
